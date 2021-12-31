@@ -12,4 +12,8 @@ function initPage() {
     var fivedayEl = document.getElementById("fiveday-header");
     var todayweatherEl = document.getElementById("today-weather");
     var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+
+    var APIKey = "542892d5f29e2b33c206cb20ad5b5de5";
+
+    
 }
