@@ -15,5 +15,8 @@ function initPage() {
 
     var APIKey = "542892d5f29e2b33c206cb20ad5b5de5";
 
-    
+    fucntion getWeather(cityName) {
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
+        
+    }
 }
