@@ -7,4 +7,9 @@ function initPage() {
     var currentTempEl = document.getElementById("temperature");
     var currentHumidityEl = document.getElementById("humidity");
     var currentWindEl = document.getElementById("wind-speed");
+    var currentUVEl = document.getElementById("UV-index");
+    var historyEl = document.getElementById("history");
+    var fivedayEl = document.getElementById("fiveday-header");
+    var todayweatherEl = document.getElementById("today-weather");
+    var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 }
