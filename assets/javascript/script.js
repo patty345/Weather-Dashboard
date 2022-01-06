@@ -53,8 +53,26 @@ function initPage() {
                 currentUVEl.append(UVIndex);
             });
 
+            var cityID = response.data.id;
+            var forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
+            fetch.get(forecastQueryURL).then(function (response){
+                fivedayEl.classList.remove("d-none");
 
-            
+                var forecastEls = document.querySelectorAll(".forecast");
+                for (i = 0; i < forecastEls.length; i++) {
+                    forecastEls[i].innerHTML = "";
+                    var forecastIndex = i * 8 + 4;
+                    var forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
+                    var forecastDay = forecastDate.getDate();
+                    var forecastMonth = forecastDate.getMonth() + 1;
+                    var forecastYear = forecastDate.getFullYear();
+                    var forecastDateEl = document.createElement("p");
+                    forecastDateEl.setAttribute("class", "mt-3 mb-0 forecast-date");
+                    forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
+                    forecastEls.append(forecastDateEl);
+                }
+            })
+
         }
         )}
 }
