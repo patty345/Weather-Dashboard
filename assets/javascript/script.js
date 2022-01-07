@@ -133,7 +133,17 @@ function initPage() {
       renderSearchHistory();
   })
 
-  
+  function k2f(K) {
+      return Math.floor((K - 273.15) * 1.8 + 32);
+  }
+
+  function renderSearchHistory() {
+      historyEl.innerHTML = "";
+      for (var i = 0; i < searchHistory.length; i++) {
+          var historyItem = document.createElement("input");
+          historyItem.setAttribute("type", "text");
+      }
+  }
 
 
 
