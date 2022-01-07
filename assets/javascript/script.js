@@ -70,6 +70,9 @@ function initPage() {
                     forecastDateEl.setAttribute("class", "mt-3 mb-0 forecast-date");
                     forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
                     forecastEls.append(forecastDateEl);
+
+                    var forecastWeatherEl = document.createElement("img");
+                    forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
                 }
             })
 
