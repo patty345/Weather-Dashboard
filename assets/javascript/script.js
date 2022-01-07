@@ -18,10 +18,10 @@ function initPage() {
   function getWeather(cityName) {
     var queryURL =
       "https://api.openweathermap.org/data/2.5/forecast?id=" +
-      cityID +
+      cityName +
       "&appid=" +
       APIKey;
-    fetch.get(queryURL).then(function (response) {
+    fetch(queryURL).then(function (response) {
       todayweatherEl.classList.remove("d-none");
 
       var currentDate = new Date(response.data.dt * 1000);
@@ -53,7 +53,7 @@ function initPage() {
         "&appid=" +
         APIKey +
         "&cnt=1";
-      fetch.get(UVQueryURL).then(function (response) {
+      fetch(UVQueryURL).then(function (response) {
         var UVIndex = document.createElement("span");
 
         if (response.data[0].value < 4) {
@@ -128,26 +128,34 @@ function initPage() {
   });
 
   clearEl.addEventListener("click", function () {
-      localStorage.clear();
-      searchHistory = [];
-      renderSearchHistory();
-  })
+    localStorage.clear();
+    searchHistory = [];
+    renderSearchHistory();
+  });
 
   function k2f(K) {
-      return Math.floor((K - 273.15) * 1.8 + 32);
+    return Math.floor((K - 273.15) * 1.8 + 32);
   }
 
   function renderSearchHistory() {
-      historyEl.innerHTML = "";
-      for (var i = 0; i < searchHistory.length; i++) {
-          var historyItem = document.createElement("input");
-          historyItem.setAttribute("type", "text");
-      }
+    historyEl.innerHTML = "";
+    for (var i = 0; i < searchHistory.length; i++) {
+      var historyItem = document.createElement("input");
+      historyItem.setAttribute("type", "text");
+      historyItem.setAttribute("readonly", true);
+      historyItem.setAttribute("class", "form-control d-block bg-white");
+      historyItem.setAttribute("value", searchHistory[i]);
+      historyItem.addEventListener("click", function () {
+        getWeather(historyItem.value);
+      });
+      historyEl.append(historyItem);
+    }
   }
 
-
-
-
-
-
+  renderSearchHistory();
+  if (searchHistory.length > 0) {
+    getWeather(searchHistory[searchHistory.length - 1]);
+  }
 }
+
+initPage();
