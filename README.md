@@ -17,9 +17,9 @@ THEN I am again presented with current and future conditions for that city
 
 ## Usage
 
-Type any city in the search box.
-WHen the search button is clicked weather will display.
-Below the search box a history of the city that was entered.
+- Type any city in the search box.
+- WHen the search button is clicked weather will display.
+- Below the search box a history of the city that was entered.
 
 ## Installation
 
