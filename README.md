@@ -13,7 +13,7 @@ THEN I am again presented with current and future conditions for that city
 
 ## Landing Page
 
-![Landing Page](.assets/images/WeatherDashboard.png)
+![Landing Page](./assets/images/WeatherDashboard.png)
 
 ## Usage
 
